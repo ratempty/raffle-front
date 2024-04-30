@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>검색 결과</title>
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* 카테고리 컨테이너 스타일 */
+      .category-container {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+
+      .category-container h2 {
+        margin-bottom: 10px;
+      }
+
+      /* 카드 스타일 */
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .card img {
+        width: 200px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <div id="logo">
+        <h1><a href="/index.html">응모했슈</a></h1>
+      </div>
+      <nav id="gnb">
+        <ul>
+          <li><a href="./raffle.html">응모</a></li>
+          <li><a href="./market.html">마켓</a></li>
+          <li><a href="./calendar.html">캘린더</a></li>
+          <li><a href="./news.html">뉴스</a></li>
+        </ul>
+        <div class="tnb">
+          <img src="../img/human.png" alt="" />
+        </div>
+      </nav>
+    </header>
+    <!-- 카테고리별 결과를 담을 컨테이너 -->
+    <div class="category-container">
+      <h2>Raffles</h2>
+      <div id="raffles-result"></div>
+    </div>
+    <div class="category-container">
+      <h2>Shoes</h2>
+      <div id="shoes-result"></div>
+    </div>
+    <div class="category-container">
+      <h2>News</h2>
+      <div id="news-result"></div>
+    </div>
+    <footer id="footer">
+      <p>© 응모했슈. 2024. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/search.js"></script>
+  </body>
+</html>

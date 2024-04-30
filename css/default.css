@@ -1,0 +1,87 @@
+@charset "utf-8";
+body,
+header,
+main,
+footer,
+section,
+ul,
+li,
+p,
+div,
+nav,
+div,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+aside,
+article,
+address,
+form,
+blockquote,
+fieldset,
+legend,
+table,
+tbody,
+th,
+td,
+dl,
+dt,
+dd,
+input,
+button,
+select,
+option,
+textarea,
+figure,
+figcaption,
+caption {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  border: 0px;
+}
+a {
+  text-decoration: none;
+}
+address,
+em,
+i {
+  font-style: normal;
+}
+button,
+fieldset,
+select,
+input {
+  border: 0px;
+}
+legend,
+caption,
+hr {
+  display: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+.sr_only {
+  display: block;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

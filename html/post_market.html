@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>응모했슈</title>
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo">
+        <h1><a href="/index.html">응모했슈</a></h1>
+      </div>
+      <nav id="gnb">
+        <ul>
+          <li><a href="./raffle.html">응모</a></li>
+          <li><a href="./market.html">마켓</a></li>
+          <li><a href="./calendar.html">캘린더</a></li>
+          <li><a href="./news.html">뉴스</a></li>
+        </ul>
+        <div class="tnb">
+          <img src="../img/human.png" alt="" />
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="post_form">
+        <form method="post" enctype="multipart/form-data" id="uploadForm">
+          <label for="title">제목</label>
+          <input type="text" id="title" name="title" />
+          <label>제품 상태</label>
+          <input type="radio" id="useStatus" name="useStatus" value="0" />
+          <span style="margin-right: 30px">새 제품</span>
+          <input type="radio" id="useStatus" name="useStatus" value="1" />
+          <span>중고 제품</span>
+          <label for="size">사이즈</label>
+          <select id="size" name="size">
+            <option value="230mm">230mm</option>
+            <option value="235mm">235mm</option>
+            <option value="240mm">240mm</option>
+            <option value="245mm">245mm</option>
+            <option value="250mm">250mm</option>
+            <option value="255mm">255mm</option>
+            <option value="260mm">260mm</option>
+            <option value="265mm">265mm</option>
+            <option value="270mm">270mm</option>
+            <option value="275mm">275mm</option>
+            <option value="280mm">280mm</option>
+          </select>
+          <label for="price">가격</label>
+          <input type="text" id="price" name="price" />
+          <div id="fileInputs">
+            <label for="file">파일 선택</label>
+            <input type="file" id="imgUrl" name="imgUrl" />
+          </div>
+          <button id="addFileButton">파일 추가</button>
+          <label for="content">내용</label>
+          <textarea id="content" name="content"></textarea>
+        </form>
+      </div>
+    </main>
+
+    <footer id="footer">
+      <p>© 응모했슈. 2024. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/post_market.js"></script>
+  </body>
+</html>

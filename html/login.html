@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>응모했슈</title>
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo">
+        <h1><a href="/index.html">응모했슈</a></h1>
+      </div>
+      <nav id="gnb">
+        <ul>
+          <li><a href="./raffle.html">응모</a></li>
+          <li><a href="./market.html">마켓</a></li>
+          <li><a href="./calendar.html">캘린더</a></li>
+          <li><a href="./news.html">뉴스</a></li>
+        </ul>
+        <div class="tnb">
+          <img src="../img/human.png" alt="" />
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="login-wrapper">
+        <h2>Login</h2>
+        <form method="post" id="login-form">
+          <input
+            type="email"
+            name="userName"
+            placeholder="Email"
+            id="email"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            name="userPassword"
+            placeholder="Password"
+            required
+          />
+          <input type="submit" value="Login" id="loginBtn" />
+          <input type="button" id="signUpBtn" value="sign-up" />
+          <img
+            src="../img/kakao.png"
+            value="kakaoBtn"
+            id="kakaoBtn"
+            style="width: 50px; padding-left: 135px; cursor: pointer"
+          />
+        </form>
+      </div>
+    </main>
+
+    <footer id="footer">
+      <p>© 응모했슈. 2024. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
