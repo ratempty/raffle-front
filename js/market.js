@@ -7,7 +7,6 @@ const marketRender = async () => {
     console.log(datas);
     datas.forEach((data) => {
       const marketContainer = document.querySelector(".market_container");
-
       const div = document.createElement("div");
       div.classList.add("item");
       div.innerHTML = `
@@ -43,9 +42,14 @@ nextBtn.addEventListener("click", () => {
 
 prevBtn.addEventListener("click", () => {
   const marketContainer = document.querySelector(".market_container");
-  marketContainer.innerHTML = "";
-  pageNum--;
-  marketRender();
+
+  if (pageNum === 1) {
+    alert("첫 페이지입니다.");
+  } else {
+    marketContainer.innerHTML = "";
+    pageNum--;
+    marketRender();
+  }
 });
 
 const imgEvent = () => {
@@ -58,25 +62,3 @@ const imgEvent = () => {
     });
   });
 };
-const goMyPage = () => {
-  const myPageBtn = document.querySelector(".tnb img");
-  myPageBtn.addEventListener("click", () => {
-    if (getAccessTokenFromCookie() === null) {
-      window.location.href = "/html/login.html";
-    } else {
-      window.location.href = "/html/myPage.html";
-    }
-  });
-};
-function getAccessTokenFromCookie() {
-  const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
-  const accessTokenCookie = cookies.find((cookie) =>
-    cookie.startsWith("access_token=")
-  );
-  if (accessTokenCookie) {
-    return accessTokenCookie.split("=")[1];
-  }
-  return null;
-}
-
-goMyPage();

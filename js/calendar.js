@@ -157,40 +157,87 @@ const goMyPage = () => {
 goMyPage();
 
 const userRaffleRender = (datas) => {
+  // 이미지가 이미 생성된 날짜를 기록하기 위한 Set
+  const createdDates = new Set();
+
   datas.forEach((data) => {
     const createdAt = new Date(data.createdAt); // createdAt 데이터를 날짜 객체로 변환
-    for (let date of document.querySelectorAll(".this")) {
-      // this 태그 찾기
-      if (+date.innerText === createdAt.getDate()) {
-        // +연산자로 숫자로 변경
+    const dateNumber = createdAt.getDate(); // 해당 데이터의 날짜를 가져옵니다.
+    const dataMonth = createdAt.getMonth(); // 해당 데이터의 월을 가져옵니다.
 
+    // 현재 보고 있는 달과 데이터의 월이 같은 경우에만 이미지를 추가합니다.
+    if (dataMonth === date.getMonth()) {
+      // 이미지가 이미 생성된 날짜인지 확인
+      if (!createdDates.has(dateNumber)) {
         // 이미지를 추가할 요소 생성
         const raffleInfoContainer = document.createElement("div");
-        raffleInfoContainer.classList.add("raffle-info");
+        raffleInfoContainer.classList.add("raffle-stamp");
 
-        // releaseMarketName 요소 생성
-        const releaseMarketName = document.createElement("p");
-        releaseMarketName.textContent = data.raffle[0].releaseMarketName;
-
-        // subName 요소 생성
-        const subName = document.createElement("p");
-        subName.textContent = data.raffle[0].subName;
+        // 이미지 요소 생성
+        const img = document.createElement("img");
+        img.src = "../img/shoes.png"; // shoes.png 이미지의 경로 설정
+        img.alt = "Shoes"; // 대체 텍스트 설정
 
         // 생성한 요소들을 컨테이너에 추가
-        raffleInfoContainer.appendChild(releaseMarketName);
-        raffleInfoContainer.appendChild(subName);
+        raffleInfoContainer.appendChild(img);
 
+        // 모달 창을 열기 위한 이벤트 처리
         raffleInfoContainer.addEventListener("click", () => {
-          window.location.href = "/html/myPage.html";
-        });
-        // 해당 날짜 버튼에 정보 컨테이너를 추가
-        date
-          .closest(".date")
-          .querySelector(".this")
-          .appendChild(raffleInfoContainer);
+          const modal = document.getElementById("myRaffle");
+          const modalContent = modal.querySelector(".modal-content");
+          const modalMessage = modalContent.querySelector("p");
 
-        break;
+          // 해당 날짜의 모든 raffle 내용을 모달에 추가
+          const raffleMessages = datas
+            .filter((item) => {
+              const itemDate = new Date(item.createdAt);
+              return itemDate.getDate() === dateNumber;
+            })
+            .map((item) => {
+              return `<p>[${item.raffle[0].releaseMarketName}] ${item.raffle[0].subName}</p>`;
+            })
+            .join("");
+
+          // 모달 내용 설정
+          modalMessage.innerHTML = raffleMessages;
+
+          // 모달 표시
+          modal.style.display = "block";
+        });
+
+        // 이미지가 생성된 날짜를 기록
+        createdDates.add(dateNumber);
+
+        // 해당 날짜 버튼에 정보 컨테이너를 추가
+        const dateButtons = document.querySelectorAll(".this");
+        for (let dateButton of dateButtons) {
+          // this 태그 찾기
+          if (+dateButton.innerText === dateNumber) {
+            // +연산자로 숫자로 변경
+            dateButton
+              .closest(".date")
+              .querySelector(".this")
+              .appendChild(raffleInfoContainer);
+            break;
+          }
+        }
       }
+    }
+  });
+
+  // 모달창 닫기 버튼 및 외부 클릭 시 닫기 기능 추가
+  const modal = document.getElementById("myRaffle");
+  const closeButton = modal.querySelector(".close");
+
+  // 모달 닫기 버튼 클릭 이벤트 처리
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // 모달 외부를 클릭하면 모달 닫기
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
     }
   });
 };

@@ -925,10 +925,11 @@ td {
 }
 
 .day {
-  width: 50px;
+  width: 100px;
   justify-content: center;
   align-self: center;
   text-align: center;
+  margin: auto;
 }
 
 .dates {
@@ -940,10 +941,20 @@ td {
 }
 
 .date {
-  text-align: center;
-  cursor: pointer;
   border: none;
   background-color: transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* 부모 요소를 기준으로 상대적인 위치 조정 */
+}
+
+.date span {
+  position: absolute; /* 절대적인 위치 설정 */
+  top: 10%; /* 상단에 배치 */
+  left: 50%; /* 가운데 정렬 */
+  transform: translateX(-50%); /* 수평 가운데 정렬 */
 }
 
 .day:nth-child(7n + 1),
@@ -958,18 +969,6 @@ td {
 
 .other {
   opacity: 0.3;
-}
-
-.date:active {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(229, 229, 230, 0.766);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  content: "";
 }
 
 .today {
@@ -989,6 +988,17 @@ td {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   content: "";
+}
+
+.raffle-stamp img {
+  width: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal-content p {
+  margin: 10px 0;
+  text-align: left;
 }
 
 /* 판매글 페이지 */
